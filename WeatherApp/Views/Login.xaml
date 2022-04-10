@@ -4,7 +4,37 @@
              x:Class="WeatherApp.Login"
              Title="Login"
              BackgroundColor="White">
-    <StackLayout>
-        
-    </StackLayout>
+
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="Transparent">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="loginback"  Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="1,1,1,1"></Image>
+            </StackLayout>
+
+            <Border x:Name="stcLogin" Stroke="Transparent" BackgroundColor="White" HeightRequest="240" WidthRequest="360" StrokeThickness="10" Opacity="0.9" AbsoluteLayout.LayoutBounds="1,1,1,0.4" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="45,45,45,45"/>
+                </Border.StrokeShape>
+
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,32,28">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Text="Kullanıcı adını giriniz." FontAttributes="Bold" FontSize="12" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="0,0,0,10"/>
+
+                    <Frame Grid.Row="1" BackgroundColor="Transparent" CornerRadius="6" HasShadow="True" BorderColor="#dbdbdb" HeightRequest="36">
+                        <Entry x:Name="txtUsername" Placeholder="Kullanıcı Adı" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+                    </Frame>
+
+                    <Button Grid.Row="2" x:Name="btnEntry" Text="Giriş" Clicked="btnEntry_Clicked" Margin="0,16,0,0" CornerRadius="6" />
+                    
+                </Grid>
+            </Border>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
 </ContentPage>

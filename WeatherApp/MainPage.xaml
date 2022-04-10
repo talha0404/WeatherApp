@@ -42,8 +42,6 @@
             <Image Grid.Row="4"
                 Source="arrowdown.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                WidthRequest="250"
-                HeightRequest="310"
                 HorizontalOptions="Center" />
 
         </Grid>

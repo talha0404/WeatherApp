@@ -15,6 +15,7 @@ public static class MauiProgram
             .ConfigureMauiHandlers(handlers =>
             {
                 handlers.AddCompatibilityRenderer(typeof(Picker), typeof(CustomPickerRenderer));
+                //handlers.AddCompatibilityRenderer(typeof(Entry), typeof(CustomEntryRenderer));
             })
             #endif
             .ConfigureFonts(fonts =>
