@@ -1,12 +1,191 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WeatherApp.Views.HomePage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Selamlar"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="WeatherApp.HomePage"            
+             Title="HomePage">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,20,20,20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="0" CornerRadius="10" Margin="0,0,0,20" Padding="13,3,3,3" Background="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                    <Picker Title="Ülke Seçiniz" x:Name="cmbCountry" ItemDisplayBinding="{Binding country}" SelectedItem="{Binding CountryCode}" SelectedIndexChanged="cmbCountry_SelectedIndexChanged"/>
+                </Frame>
+
+                <Frame Grid.Row="1" CornerRadius="10" Margin="0,0,0,20" Padding="13,3,3,3" Background="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                    <Picker Title="Şehir Seçiniz" x:Name="cmbCity"  SelectedIndexChanged="cmbCity_SelectedIndexChanged" ItemDisplayBinding="{Binding country}" SelectedItem="{Binding CountryCode}"/>
+                </Frame>
+
+                <Frame Grid.Row="2" CornerRadius="10" Padding="13,3,3,3" Background="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                    <Picker Title="İlçe Seçiniz" x:Name="cmbDistrict" SelectedIndexChanged="cmbDistrict_SelectedIndexChanged" ItemDisplayBinding="{Binding country}" SelectedItem="{Binding CountryCode}"/>
+                </Frame>
+
+            </Grid>
+
+            <!--<CarouselView x:Name="crsWeather">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Border Stroke="Transparent" BackgroundColor="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="60,60,60,60"/>
+                                </Border.StrokeShape>
+
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Temp}" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Feels_like}" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding Humidity}" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+
+                                    <StackLayout Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                                    </StackLayout>
+
+                                </Grid>
+                            </Border>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>-->
         </StackLayout>
-    </ContentPage.Content>
+
+        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Border Stroke="Transparent" Background="#FFFFFF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="100,100,0,0"/>
+                </Border.StrokeShape>
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Text="Around The World" TextColor="#000000" FontSize="16" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+                        <Border Grid.Row="1" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="60,60,60,60"/>
+                            </Border.StrokeShape>
+
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="United States" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                                <Label Grid.Row="1" Grid.Column="0" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Label Grid.Row="2" Grid.Column="0" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+
+                                <StackLayout Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                                </StackLayout>
+
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Row="2" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="60,60,60,60"/>
+                            </Border.StrokeShape>
+
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="United States" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                                <Label Grid.Row="1" Grid.Column="0" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Label Grid.Row="2" Grid.Column="0" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+
+                                <StackLayout Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                                </StackLayout>
+
+                            </Grid>
+                        </Border>
+                        
+                        <Border Grid.Row="3" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="60,60,60,60"/>
+                            </Border.StrokeShape>
+
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="United States" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                                <Label Grid.Row="1" Grid.Column="0" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Label Grid.Row="2" Grid.Column="0" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+
+                                <StackLayout Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                                </StackLayout>
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </StackLayout>
+
+            </Border>
+        </StackLayout>
+
+    </Grid>
 </ContentPage>
+
+
+<!--<Label Text="ISTANBUL" FontSize="30" HorizontalOptions="CenterAndExpand" />
+
+<Label Text="23°" FontSize="70" HorizontalOptions="CenterAndExpand" />-->

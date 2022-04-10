@@ -1,13 +1,12 @@
-﻿using WeatherApp.Views;
-
+﻿
 namespace WeatherApp;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    public App()
+    {
+        InitializeComponent();
 
-		MainPage = new HomePage();
-	}
+        MainPage = new MainPage();
+    }
 }
