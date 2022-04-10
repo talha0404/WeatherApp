@@ -19,7 +19,7 @@ namespace WeatherApp.Services
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
 
-                string a = client.GetStringAsync($"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid=" + TOOLS.WeatherApiKey + "").Result;
+                string a = client.GetStringAsync($"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid=" + TOOLS.WeatherApiKey + "&units=metric").Result;
 
                 var jo = JObject.Parse(a);
                 var id = jo["main"].ToString();
