@@ -27,7 +27,7 @@
                     <Label Grid.Row="0" Text="Kullanıcı adını giriniz." FontAttributes="Bold" FontSize="12" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="0,0,0,10"/>
 
                     <Frame Grid.Row="1" BackgroundColor="Transparent" CornerRadius="6" HasShadow="True" BorderColor="#dbdbdb" HeightRequest="36">
-                        <Entry x:Name="txtUsername" Placeholder="Kullanıcı Adı" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <Entry x:Name="txtUsername" Text="" Placeholder="Kullanıcı Adı" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
                     </Frame>
 
                     <Button Grid.Row="2" x:Name="btnEntry" Text="Giriş" Clicked="btnEntry_Clicked" Margin="0,16,0,0" CornerRadius="6" />

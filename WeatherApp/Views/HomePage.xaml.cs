@@ -8,6 +8,8 @@ namespace WeatherApp;
 
 public partial class HomePage : ContentPage
 {
+    WeatherServices weatherServices = new WeatherServices();
+
     public HomePage()
     {
         InitializeComponent();
@@ -38,7 +40,6 @@ public partial class HomePage : ContentPage
 
             if (placemark is not null)
             {
-                WeatherServices weatherServices = new WeatherServices();
                 Weather weather = weatherServices.GetTemparatureOfCity(placemark.AdminArea);
 
                 lblCityName.Text = placemark.AdminArea;
@@ -48,6 +49,12 @@ public partial class HomePage : ContentPage
         }
         else
         {
+            Weather weather = weatherServices.GetTemparatureOfCity("Sakarya");
+
+            lblCityName.Text = "Sakarya";
+            lblCityDesc.Text = weather.description;
+            lblCityTemp.Text = weather.Temp + " °C";
+
             lblCurrentLocation.IsVisible = false;
         }
     }
@@ -64,7 +71,6 @@ public partial class HomePage : ContentPage
 
             if (!string.IsNullOrWhiteSpace(city.name))
             {
-                WeatherServices weatherServices = new WeatherServices();
                 Weather weather = weatherServices.GetTemparatureOfCity(city.name);
 
                 lblCityName.Text = city.name;
@@ -72,7 +78,6 @@ public partial class HomePage : ContentPage
                 lblCityDesc.Text = weather.description;
                 lblCityTemp.Text = weather.Temp + " °C";
                 lblCurrentLocation.IsVisible = false;
-
             }
         }
         catch (Exception ex)
@@ -86,7 +91,6 @@ public partial class HomePage : ContentPage
     {
         try
         {
-            WeatherServices weatherServices = new WeatherServices();
 
             Weather weather = weatherServices.GetTemparatureOfCity("Dubai");
 
