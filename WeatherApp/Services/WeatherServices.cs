@@ -19,12 +19,18 @@ namespace WeatherApp.Services
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
 
-                string a = client.GetStringAsync($"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid=" + TOOLS.WeatherApiKey + "&units=metric").Result;
+                string a = client.GetStringAsync($"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid=" + TOOLS.WeatherApiKey + "&units=metric&lang=TR").Result;
 
                 var jo = JObject.Parse(a);
+
                 var id = jo["main"].ToString();
+                var id2 = jo["weather"][0].ToString();
 
                 var weather = JsonConvert.DeserializeObject<Weather>(id);
+                var weather2 = JsonConvert.DeserializeObject<Weather>(id2);
+             
+                weather.description = weather2.description;
+                weather.icon = weather2.icon;
 
                 return weather;
             }

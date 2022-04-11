@@ -9,7 +9,7 @@ namespace WeatherApp.Helper
     public static class TOOLS
     {
         //We are writing common things on Global
-        public static string WeatherApiKey= "ebb8eb22ec6c6575623fcf1fce474d3c";
+        public static string WeatherApiKey= "7fe306d0fd7b07a0ddb50ed0f1b02063";        
         public static string UserName = "";
     }
 }

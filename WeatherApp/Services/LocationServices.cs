@@ -12,7 +12,6 @@ namespace WeatherApp.Services
 {
     public class LocationServices
     {
-        static string CountryUrl = "https://restcountries.com/v3.1/all";
         static HttpClient client = new HttpClient();
 
         public async Task<List<Country>> GetAllCountries()

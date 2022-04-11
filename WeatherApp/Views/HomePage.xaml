@@ -7,21 +7,68 @@
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,40,20,40">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2.2*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
 
-        <StackLayout Grid.Row="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout Grid.Row="0" Orientation="Vertical" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <Frame  CornerRadius="10" Margin="0,0,0,20" Padding="13,3,3,3" Background="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+            <Label x:Name="lblGreetings" Text="" Padding="0,0,0,16"/>
+
+            <Frame  CornerRadius="10" Margin="0,0,0,10" Padding="13,3,3,3" Background="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
                 <Picker Title="Şehir Seçiniz" x:Name="cmbCity"  SelectedIndexChanged="cmbCity_SelectedIndexChanged" ItemDisplayBinding="{Binding name}" SelectedItem="{Binding name}"/>
             </Frame>
 
-            <!--<CarouselView x:Name="crsWeather">
-                <CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Border Stroke="Transparent" BackgroundColor="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Border Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="75,75,75,75"/>
+                </Border.StrokeShape>
+
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="lblCurrentLocation"  Text="Bulunduğunuz Konum"  FontSize="12" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Grid.Row="1" Grid.Column="0" x:Name="lblCityName" Text="Türkiye" FontAttributes="Bold" FontSize="20" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Grid.Row="2" Grid.Column="0" x:Name="lblCityDesc" Text="New York" FontSize="14" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="End"/>
+                    <Label Grid.Row="2" Grid.Column="1" x:Name="lblCityTemp" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,20,0"/>
+
+                </Grid>
+            </Border>
+        </StackLayout>
+
+        <Label Grid.Row="1" Text="Around The World" Margin="10,10,0,0" TextColor="#000000" FontSize="16" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+        <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,15,0,0">
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Border Stroke="Transparent" Background="#FFFFFF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="100,100,0,0"/>
+                    </Border.StrokeShape>
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="12">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Border Grid.Row="0" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
 
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="60,60,60,60"/>
@@ -31,6 +78,29 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="1*"/>
                                         <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="lblDubai" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                    <Label Grid.Row="1" Grid.Column="0" x:Name="lblDubaiDesc" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="End"/>
+                                    <Label Grid.Row="1" Grid.Column="1" x:Name="lblDubaiTemp" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="End" VerticalOptions="End"/>
+
+                                </Grid>
+                            </Border>
+
+                            <Border Grid.Row="1" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="60,60,60,60"/>
+                                </Border.StrokeShape>
+
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
                                         <RowDefinition Height="1*"/>
                                     </Grid.RowDefinitions>
 
@@ -39,130 +109,88 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Temp}" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Feels_like}" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding Humidity}" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
-
-                                    <StackLayout Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-
-                                    </StackLayout>
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="lblDelhi" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="FillAndExpand"/>
+                                    <Label Grid.Row="1" Grid.Column="0" x:Name="lblDelhiDesc" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="End"/>
+                                    <Label Grid.Row="1" Grid.Column="1" x:Name="lblDelhiTemp" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="End" VerticalOptions="End"/>
 
                                 </Grid>
                             </Border>
 
-                        </StackLayout>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>-->
-        </StackLayout>
+                            <Border Grid.Row="2" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
 
-        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Border Stroke="Transparent" Background="#FFFFFF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="100,100,0,0"/>
-                </Border.StrokeShape>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="60,60,60,60"/>
+                                </Border.StrokeShape>
 
-                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
 
-                        <Label Grid.Row="0" Text="Around The World" TextColor="#000000" FontSize="16" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
 
-                        <Border Grid.Row="1" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="lblLondon" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="FillAndExpand"/>
+                                    <Label Grid.Row="1" Grid.Column="0" x:Name="lblLondonDesc" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="End"/>
+                                    <Label Grid.Row="1" Grid.Column="1" x:Name="lblLondonTemp" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="End" VerticalOptions="End"/>
 
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="60,60,60,60"/>
-                            </Border.StrokeShape>
+                                </Grid>
+                            </Border>
 
-                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                </Grid.RowDefinitions>
+                            <Border Grid.Row="3" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="60,60,60,60"/>
+                                </Border.StrokeShape>
 
-                                <Label Grid.Row="0" Grid.Column="0" Text="United States" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-                                <Label Grid.Row="1" Grid.Column="0" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                <Label Grid.Row="2" Grid.Column="0" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
 
-                                <StackLayout Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
 
-                                </StackLayout>
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="lblTokyo" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="FillAndExpand"/>
+                                    <Label Grid.Row="1" Grid.Column="0" x:Name="lblTokyoDesc" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="End"/>
+                                    <Label Grid.Row="1" Grid.Column="1" x:Name="lblTokyoTemp" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="End" VerticalOptions="End"/>
 
-                            </Grid>
-                        </Border>
+                                </Grid>
+                            </Border>
 
-                        <Border Grid.Row="2" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                            <Border Grid.Row="4" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
 
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="60,60,60,60"/>
-                            </Border.StrokeShape>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="60,60,60,60"/>
+                                </Border.StrokeShape>
 
-                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                </Grid.RowDefinitions>
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
 
-                                <Label Grid.Row="0" Grid.Column="0" Text="United States" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-                                <Label Grid.Row="1" Grid.Column="0" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                <Label Grid.Row="2" Grid.Column="0" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="lblBerlin" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="FillAndExpand"/>
+                                    <Label Grid.Row="1" Grid.Column="0" x:Name="lblBerlinDesc" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="Start" VerticalOptions="End"/>
+                                    <Label Grid.Row="1" Grid.Column="1" x:Name="lblBerlinTemp" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="End" VerticalOptions="End"/>
 
-                                <StackLayout Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-
-                                </StackLayout>
-
-                            </Grid>
-                        </Border>
-
-                        <Border Grid.Row="3" Stroke="Transparent" Background="#8174CF" StrokeThickness="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="60,60,60,60"/>
-                            </Border.StrokeShape>
-
-                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="12,12,12,28">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                </Grid.RowDefinitions>
-
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-
-                                <Label Grid.Row="0" Grid.Column="0" Text="United States" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-                                <Label Grid.Row="1" Grid.Column="0" Text="New York" FontSize="22" FontAttributes="Bold" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                <Label Grid.Row="2" Grid.Column="0" Text="Clear" FontSize="12" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
-
-                                <StackLayout Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-
-                                </StackLayout>
-
-                            </Grid>
-                        </Border>
-                    </Grid>
-                </StackLayout>
-
-            </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </StackLayout>
+                </Border>
+            </ScrollView>
         </StackLayout>
 
     </Grid>
